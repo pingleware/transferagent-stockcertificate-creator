@@ -63,6 +63,8 @@
         <input type="date" class="w3-input w3-block" name="issue-date" id="issue-date" />
       </fieldset>
       <button class="w3-button w3-block w3-black" id="create">Create</button>
+      <br/>
+      <button class="w3-button w3-block w3-green" id="save-as-bytecode" title="Save the certificate as a byte code to later insert in a smart contract?">Save as Byte Code</button>
       <br/><br/><br/><br/>
     </div>
     <!-- FOOTER -->
@@ -130,13 +132,57 @@
         return false;
       });
 
+      listener("save-as-bytecode","click",function(e){
+        this.setAttribute('disabled', 'disabled');
+
+        var html = createStockCertificate();
+        var filename = id("investor-wallet").value + "_stockcertificate";
+
+        var data = html2byteArray(html);
+        Export2Txt(filename, data);
+
+        this.removeAttribute('disabled');
+        return false;
+      });
+
       function html2byteArray(html) {
         var json = JSON.stringify(html);
         var data = [];
         for (var i = 0; i < json.length; i++){  
-          data.push(url.charCodeAt(i));
+          data.push(json.charCodeAt(i));
         }
         return data;
+      }
+
+      function Export2Txt(filename, text) {
+        var blob = new Blob([text], {
+            type: 'text/html'
+        });
+        // Specify link url
+        var url = 'data:text/html;charset=utf-8,' + encodeURIComponent(text);
+        
+        // Specify file name
+        filename = filename?filename+'.text':'document.text';
+        
+        // Create download link element
+        var downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+        
+        if(navigator.msSaveOrOpenBlob ){
+            navigator.msSaveOrOpenBlob(blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = url;
+            
+            // Setting the file name
+            downloadLink.download = filename;
+            
+            //triggering the function
+            downloadLink.click();
+        }
+        
+        document.body.removeChild(downloadLink);
       }
 
       function Export2Doc(filename, html) {

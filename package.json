@@ -1,6 +1,6 @@
 {
     "name": "ta-stockcertificatecreator",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A Stock Certificate creator used by a Transfer Agent",
     "main": "app.js",
     "build": {
