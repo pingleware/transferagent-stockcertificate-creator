@@ -18,7 +18,7 @@ Whenever the code base is updated, a new standalone executable is created and re
     1.0.0         12/26/2021        Initial release, save as MS-Word doc format
 
 # EOL or End-of-Life
-When a piece of software is useful, there should never be an EOL doctrine. The intention for mtbridge-server is to achieve immoratlity ;).
+When a piece of software is useful, there should never be an EOL doctrine. The intention for this application is to achieve immoratlity ;).
 
 At some point of time in the future, this project may appear to be dead and abandon. The opposite will be true!
 
