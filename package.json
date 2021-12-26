@@ -1,0 +1,47 @@
+{
+    "name": "ta-stockcertificatecreator",
+    "version": "1.0.0",
+    "description": "A Stock Certificate creator used by a Transfer Agent",
+    "main": "app.js",
+    "build": {
+        "appId": "com.redeecash.stockcertificatecreator",
+        "productName": "TA-StockCertificateCreator",
+        "copyright": "Copyright © 2020 ${author}",
+        "win": {
+            "icon": "assets/stockcertificate-restricted.png"
+        },
+        "files": [],
+        "extraFiles": []
+    },
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps",
+        "package-linux": "electron-packager . ta-stockcertificatecreator --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/ta-stockcertificatecreator-logo.png --prune=true --out=release-builds",
+        "package-macos": "electron-packager . ta-stockcertificatecreator --overwrite --platform=darwin --arch=x64 --icon=assets/ta-stockcertificatecreator-logo.icns --prune=true  --out=release-builds",
+        "create-debian-installer": "electron-installer-debian --src release-builds/ta-stockcertificatecreator-linux-x64/ --arch amd64 --config debian.json",
+        "create-macos-installer": "hdiutil create release-builds/ta-stockcertificatecreator.dmg -ov -volname 'ta-stockcertificatecreator' -fs HFS+ -srcfolder './release-builds/ta-stockcertificatecreator-darwin-x64/ta-stockcertificatecreator.app'",
+        "create-macos-postinstaller": "cross-var \"hdiutil convert release-builds/ta-stockcertificatecreator.dmg -format UDZO -o release-builds/ta-stockcertificatecreator_darwin_$npm_package_version.dmg\"",
+        "create-macos-cleanup": "rm release-builds/ta-stockcertificatecreator.dmg",
+        "convert-png2ico": "magick assets/acme.png -background none -resize 128x128 -density 128x128 assets/acme.ico",
+        "copy-image-on-windows": "copy C:\\Users\\tbear\\OneDrive\\Pictures\\acme.png assets/acme.png",
+        "copy-image-on-linux": "cp C:/Users/tbear/OneDrive/Pictures/acme.png assets/acme.png",
+        "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\acme.icns assets/acme.icns"
+    },
+    "author": "PressPage Entertainment Inc DBA RedeeCash <presspage.entertainment@gmail.com>",
+    "license": "CC-BY-4.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pingleware/transferagent-stockcertificate-creator.git"
+    },
+    "devDependencies": {
+        "cross-var": "latest",
+        "electron": "latest",
+        "electron-builder": "latest"
+    },
+    "dependencies": {
+        "body-parser": "latest",
+        "path": "latest"
+    }
+}

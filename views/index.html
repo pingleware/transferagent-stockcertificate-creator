@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <title>Stock Certificate Creator</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="w3-container w3-blue w3-top">
+      <h4>Stock Certificate Creator</h4>
+    </div>
+    <!-- MAIN -->
+    <div class="w3-container" id="main">
+      <br/><br/><br/><br/>
+      <fieldset>
+        <lagend>Company Information</lagend>
+        <label for="company-name">Company Name</label>
+        <input type="text" class="w3-input w3-block" name="company-name" id="company-name" value="" />
+        <label for="state-of-incorporation">State of Incorporation</label>
+        <input type="text" class="w3-input w3-block" name="state-of-incorporation" id="state-of-incorporation" value="" />
+        <label for="officer-1">First Officer Name</label>
+        <input type="text" class="w3-input w3-block" name="officer-1" id="officer-1" value="" />
+        <label for="officer-title-1">First Officer Title</label>
+        <input type="text" class="w3-input w3-block" name="officer-title-1" id="officer-title-1" value="" />
+        <label for="officer-2">Second Officer Name</label>
+        <input type="text" class="w3-input w3-block" name="officer-2" id="officer-2" value="" />
+        <label for="officer-title-2">Second Officer Title</label>
+        <input type="text" class="w3-input w3-block" name="officer-title-2" id="officer-title-2" value="" />
+        <label for="transfer-agent">Transfer Agent</label>
+        <input type="text" class="w3-input w3-block" name="transfer-agent" id="transfer-agent" value="" />
+      </fieldset>
+      <fieldset>
+        <legend>Offering Information</legend>
+        <label for="cusip">CUSIP</label>
+        <input type="text" class="w3-input w3-block" name="cusip" id="cusip" value="Not Applicable" />
+        <label for="isin">ISIN</label>
+        <input type="text" class="w3-input w3-block" name="isin" id="isin" value="Not Applicable" />
+        <label for="share-type">Share Type or Classification</label>
+        <input type="text" class="w3-input w3-block" name="share-type" id="share-type" value="" />
+        <label for="par-value">Par Value</label>
+        <input type="number" steps="any" class="w3-input w3-block" name="par-value" id="par-value" value="" />
+      </fieldset>
+      <fieldset>
+        <legend>Investor Information</legend>
+        <label for="investor-name">Investor Name</label>
+        <input type="text" class="w3-input w3-block" name="investor-name" id="investor-name" value="" />
+        <label for="investor-wallet">Investor Wallet</label>
+        <input type="text" class="w3-input w3-block" name="investor-wallet" id="investor-wallet" value="" />
+      </fieldset>
+      <fieldset>
+        <legend>Equity Information</legend>
+        <label for="share-qty">Share Quantity Sold</label>
+        <input type="number" steps="0" min="1" class="w3-input w3-block" name="share-qty" id="share-qty" value="1" />
+        <label for="share-price">Share Price</label>
+        <input type="number" steps="any" class="w3-input w3-block" name="share-price" id="share-price" value="1" />
+        <label for="issue-date">Issue Date</label>
+        <input type="date" class="w3-input w3-block" name="issue-date" id="issue-date" />
+      </fieldset>
+      <button class="w3-button w3-block w3-black" id="create">Create</button>
+      <br/><br/><br/><br/>
+    </div>
+    <!-- FOOTER -->
+    <div class="w3-container w3-card w3-blue w3-bottom">
+      <p class="w3-center">
+        &copy; 2020 <a href="https://redeecash.com" target="_blank" style="text-decoration: none;">PressPage Entertainment Inc DBA RedeeCash</a>
+        &nbsp;All rights reserved.
+        &nbsp;<span class="w3-tiny" id="version"></span>
+      </p>
+    </div>
+    <!-- SUCCESS DIALOG -->
+    <div id="success-dialog" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h2 class="w3-green" id="success-dialog-title">Success</h2>
+          <p id="success-dialog-message"></p>
+          <br />
+          <button class="w3-button w3-block w3-black" id="success-dialog-ok">OK</button>
+          <br />
+        </div>
+      </div>
+    </div>
+    <!-- ERROR DIALOG -->
+    <div id="error-dialog" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h2 class="w3-red" id="error-dialog-title">Error</h2>
+          <p id="error-dialog-message"></p>
+          <br />
+          <button class="w3-button w3-block w3-black" id="error-dialog-ok">OK</button>
+          <br />
+        </div>
+      </div>
+    </div>
+    <!-- CONFIRM DIALOG -->
+    <div id="confirm-dialog" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <h2 class="w3-red" id="confirm-dialog-title">Error</h2>
+          <p id="confirm-dialog-message"></p>
+          <br />
+          <button class="w3-button w3-block w3-light-grey" id="confirm-dialog-yes">Yes</button>
+          <br />
+          <button class="w3-button w3-block w3-light-grey" id="confirm-dialog-no">No</button>
+          <br />
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript References-->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/stockcertificate.js"></script>
+    <script type="text/javascript">
+      window.onload = function(e) {
+        id('version').innerHTML = 'Version ' + localStorage.getItem('version');
+      }
+
+      listener("create", "click", function(e){
+        this.setAttribute('disabled', 'disabled');
+
+        var html = createStockCertificate();
+        var filename = id("investor-wallet").value + "_stockcertificate";
+        Export2Doc(filename, html);
+
+        this.removeAttribute('disabled');
+        return false;
+      });
+
+      function html2byteArray(html) {
+        var json = JSON.stringify(html);
+        var data = [];
+        for (var i = 0; i < json.length; i++){  
+          data.push(url.charCodeAt(i));
+        }
+        return data;
+      }
+
+      function Export2Doc(filename, html) {
+        var blob = new Blob(['\ufeff', html], {
+            type: 'application/msword'
+        });
+        
+        // Specify link url
+        var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+        
+        // Specify file name
+        filename = filename?filename+'.doc':'document.doc';
+        
+        // Create download link element
+        var downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+        
+        if(navigator.msSaveOrOpenBlob ){
+            navigator.msSaveOrOpenBlob(blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = url;
+            
+            // Setting the file name
+            downloadLink.download = filename;
+            
+            //triggering the function
+            downloadLink.click();
+        }
+        
+        document.body.removeChild(downloadLink);
+      }
+    </script>
+  </body>
+</html>

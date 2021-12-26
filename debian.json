@@ -1,0 +1,10 @@
+{
+    "dest": "release-builds/",
+    "icon": "assets/stockcertificate-restricted.png",
+    "categories": [
+        "Financial"
+    ],
+    "lintianOverrides": [
+        "changelog-file-missing-in-native-package"
+    ]
+}
