@@ -10,6 +10,11 @@
         "win": {
             "icon": "assets/stockcertificate-restricted.png"
         },
+        "linux": {
+            "icon": "assets/stockcertificate-restricted.png",
+            "category": "Office",
+            "description": "Stock Certificate creation utility"
+        },
         "files": [],
         "extraFiles": []
     },
@@ -17,6 +22,8 @@
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
+        "pack-armv7l": "electron-builder --dir --armv7l",
+        "dist-armv7l": "electron-builder --armv7l",
         "postinstall": "electron-builder install-app-deps",
         "package-linux": "electron-packager . ta-stockcertificatecreator --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/ta-stockcertificatecreator-logo.png --prune=true --out=release-builds",
         "package-macos": "electron-packager . ta-stockcertificatecreator --overwrite --platform=darwin --arch=x64 --icon=assets/ta-stockcertificatecreator-logo.icns --prune=true  --out=release-builds",
