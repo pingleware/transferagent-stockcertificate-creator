@@ -23,6 +23,8 @@
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
+        "pack-arm64": "electron-builder --dir --arm64",
+        "dist-arm64": "electron-builder --arm64",
         "pack-armv7l": "electron-builder --dir --armv7l",
         "dist-armv7l": "electron-builder --armv7l",
         "postinstall": "electron-builder install-app-deps",
