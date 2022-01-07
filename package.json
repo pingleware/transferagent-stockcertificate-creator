@@ -11,6 +11,7 @@
             "icon": "assets/stockcertificate-restricted.png"
         },
         "linux": {
+            "target": "deb",
             "icon": "assets/stockcertificate-restricted.png",
             "category": "Office",
             "description": "Stock Certificate creation utility"
