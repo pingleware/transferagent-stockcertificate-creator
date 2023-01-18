@@ -16,6 +16,26 @@
             "category": "Office",
             "description": "Stock Certificate creation utility"
         },
+        "mac": {
+            "icon": "./assets/stockcertificate-restricted.icns",
+            "category": "public.app-category.financial"
+        },
+        "dmg": {
+            "title": "${productName}_${version}",
+            "icon": "./assets/stockcertificate-restricted.icns",
+            "contents": [
+              {
+                "x": 110,
+                "y": 150
+              },
+              {
+                "x": 240,
+                "y": 150,
+                "type": "link",
+                "path": "/Applications"
+              }
+            ]
+        },
         "files": [],
         "extraFiles": []
     },
@@ -37,7 +57,8 @@
         "convert-png2ico": "magick assets/acme.png -background none -resize 128x128 -density 128x128 assets/acme.ico",
         "copy-image-on-windows": "copy C:\\Users\\tbear\\OneDrive\\Pictures\\acme.png assets/acme.png",
         "copy-image-on-linux": "cp C:/Users/tbear/OneDrive/Pictures/acme.png assets/acme.png",
-        "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\acme.icns assets/acme.icns"
+        "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\acme.icns assets/acme.icns",
+        "png2icns": "./icns_creator.sh ./assets/stockcertificate-restricted.png ./assets/stockcertificate-restricted"
     },
     "author": "PressPage Entertainment Inc DBA RedeeCash <presspage.entertainment@gmail.com>",
     "license": "CC-BY-4.0",
