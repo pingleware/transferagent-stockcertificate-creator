@@ -2,3 +2,4 @@
 /app.min.js
 /dist
 ._*
+package-lock.json
